@@ -398,3 +398,10 @@ form.sign-in-form {
     left: 50%;
   }
 }
+
+.logo-zap{
+  max-height: 200px;
+  position: absolute;
+  left: 40%;
+  bottom: 20px;
+}

@@ -2,29 +2,23 @@ import React from 'react'
 import './login.css'
 import LogImg from '../../Assets/Images/log.png'
 import RegImg from '../../Assets/Images/register.png'
+import Logo from '../../Assets/Images/mezap.png'
 
-const Login = () => {
+class Login extends React.Component {
 
-    const sign_in_btn = document.querySelector("#sign-in-btn");
-    const sign_up_btn = document.querySelector("#sign-up-btn");
-    const container = document.querySelector(".container");
-    
-    
-    const modoRegistro = () => {
-        sign_up_btn.addEventListener("click", () => {
-            container.classList.add("sign-up-mode");
-          });
-    };
-    
-    const modoLogin = () => {
-        sign_in_btn.addEventListener("click", () => {
-            container.classList.remove("sign-up-mode");
-          });
+  constructor(props) {
+    super(props)
+    this.state = {
+        tab: "container"
     }
+}
 
+  
+render(){
 
   return (
-    <div className="container">
+    <div className={this.state.tab === "container" ? "container" : "container sign-up-mode"}>
+      <img className='logo-zap' src={Logo}/>
     <div className="forms-container">
       <div className="signin-signup">
         <form action="#" className="sign-in-form">
@@ -69,7 +63,7 @@ const Login = () => {
           <p>
             Registre-se agora e conheça a nossa inovadora ferramente, seja bem vindo ao MeZap chamadas!
           </p>
-          <button className="btn transparent" id="sign-up-btn" onClick={modoRegistro}>
+          <button id="sign-up-btn" className={this.state.tab === "btn transparent" ? "btn transparent" : "btn transparent"} onClick={() => this.setState({tab: "containe"})}>
             Registrar
           </button>
         </div>
@@ -81,7 +75,7 @@ const Login = () => {
           <p>
             Faça login na plataforma e não perca os benefícios do Mezap chamadas!
           </p>
-          <button className="btn transparent" id="sign-in-btn" onClick={modoLogin}>
+          <button id="sign-up-btn" className={this.state.tab === "btn transparent" ? "btn transparent" : "btn transparent"} onClick={() => this.setState({tab: "container"})}>
             Login
           </button>
         </div>
@@ -90,6 +84,7 @@ const Login = () => {
     </div>
   </div>
   )
+}
 }
 
 export default Login
