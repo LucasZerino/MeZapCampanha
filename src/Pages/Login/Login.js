@@ -18,7 +18,6 @@ render(){
 
   return (
     <div className={this.state.tab === "container" ? "container" : "container sign-up-mode"}>
-      <img className='logo-zap' src={Logo}/>
     <div className="forms-container">
       <div className="signin-signup">
         <form action="#" className="sign-in-form">
